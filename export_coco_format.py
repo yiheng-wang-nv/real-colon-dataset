@@ -220,12 +220,12 @@ if __name__ == "__main__":
 
 
     # Parameters
-    base_dataset_folder = "/path/to/dataset/folder"  # Path to the folder of the original REAL-COLON dataset (update with proper value)
+    base_dataset_folder = "/raid/colon_reproduce/real-colon-dataset/dataset"  # Path to the folder of the original REAL-COLON dataset (update with proper value)
     num_positives_per_lesions = 1000 # Number of frames with boxes for each polyp to be included in the output dataset
     negative_ratio = 0 # Ratio of images without boxes for each video to be included in the output dataset [0,1]
     NUM_TRAIN_VIDEOS_PER_SET = 10 # the first 10 videos for each set will go in the train set
     NUM_VALID_VIDEOS_PER_SET = 2 # the next 2 in the validation set, and the remaining videos (3)for each set will go in the test set
-    output_folder = f"./real_colon_dataset_coco_fmt_3subsets_poslesion{num_positives_per_lesions}_negratio{negative_ratio}" # Output folder for the converted dataset
+    output_folder = f"./yolo/{num_positives_per_lesions}_negratio{negative_ratio}" # Output folder for the converted dataset
 
     # read input data
     video_list = sorted([x for x in os.listdir(base_dataset_folder) if x.endswith("_frames")])
@@ -233,9 +233,9 @@ if __name__ == "__main__":
 
     # set output folder for coco format annotations
     os.makedirs(output_folder, exist_ok=False)
-    train_images_folder = os.path.join(output_folder, "train_images")
-    validation_images_folder = os.path.join(output_folder, "validation_images")
-    test_images_folder = os.path.join(output_folder, "test_images")
+    train_images_folder = os.path.join(output_folder, "train", "images")
+    validation_images_folder = os.path.join(output_folder, "validation", "images")
+    test_images_folder = os.path.join(output_folder, "test", "images")
     json_output_file_train = os.path.join(output_folder, "train_ann.json")
     json_output_file_validation = os.path.join(output_folder, "validation_ann.json")
     json_output_file_test = os.path.join(output_folder, "test_ann.json")

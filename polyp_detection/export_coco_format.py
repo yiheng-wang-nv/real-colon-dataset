@@ -228,9 +228,9 @@ def convert_video_list(base_dataset_folder, video_list, annotation_list, frames_
 
 if __name__ == "__main__":
     # Parameters
-    base_dataset_folder = "/path/to/dataset/folder"  # Path to the folder of the original REAL-COLON dataset (update with proper value)
-    num_positives_per_lesions = 1000 # Number of frames with boxes for each polyp to be included in the output dataset
-    negative_ratio = 0 # Ratio of images without boxes for each video to be included in the output dataset [0,1]
+    base_dataset_folder = "/raid/colon_reproduce/real-colon-dataset/dataset"  # Path to the folder of the original REAL-COLON dataset (update with proper value)
+    num_positives_per_lesions = -1 # Number of frames with boxes for each polyp to be included in the output dataset
+    negative_ratio = 0.45 # Ratio of images without boxes for each video to be included in the output dataset [0,1]
     NUM_TRAIN_VIDEOS_PER_SET = 10 # the first 10 videos for each set will go in the train set
     NUM_VALID_VIDEOS_PER_SET = 2 # the next 2 in the validation set, and the remaining videos (3)for each set will go in the test set
     output_folder = f"./real_colon_dataset_coco_fmt_3subsets_poslesion{num_positives_per_lesions}_negratio{negative_ratio}" # Output folder for the converted dataset

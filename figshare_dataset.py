@@ -155,7 +155,7 @@ def main():
         print(f'Queued {file_name} for download...')
 
     # Control the number of processes by adjusting this variable
-    num_processes = 4  # Change this to the desired number of processes
+    num_processes = 1  # Change this to the desired number of processes
 
     # Ensure the number of processes does not exceed the number of tasks
     num_processes = min(num_processes, len(download_tasks))
